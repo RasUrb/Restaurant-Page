@@ -9,7 +9,7 @@ This project part of [The Odin Project's](https://www.theodinproject.com) "Inter
  - HTML5
  - CSS3
  - JavaScript (ES6 Modules)
- -npm (Node package Manager)
+ - npm (Node package Manager)
 
 ## Features
 - Dynamic tab switching between Home and Contact pages.
