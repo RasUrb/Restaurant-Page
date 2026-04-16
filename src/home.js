@@ -1,3 +1,4 @@
+import {createDiv, createHeading, createParagraph} from './dom-utils.js';
 const loadHome = () => {
     const content = document.getElementById('content');
     const title= "Bite animal food restaurant.";
@@ -15,24 +16,14 @@ const loadHome = () => {
         },
         location: "87 pica pizza row, Heat Oven, Dough",
     };
-    const createDiv = (class_name) => {
-        const new_div = document.createElement('div');
-        new_div.classList.add(class_name);
-        return new_div;
-    };
+
     const createParagraph = (text, addClass) => {
         const p = document.createElement('p');
         p.classList.add(addClass)
         p.textContent = text;
         return p;
     };
-    const createHeading = (heading) => {
-        const heading_div = createDiv("heading");
-        const heading_h1 = document.createElement("h1");
-        heading_h1.textContent = heading;
-        heading_div.appendChild(heading_h1);
-        return heading_div;
-    };
+
 
     const info_format = (class_name, text) => {
         const new_div = createDiv("info-" + class_name);

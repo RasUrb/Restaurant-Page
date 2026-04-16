@@ -7,8 +7,7 @@ const ScreenController = function () {
     const updateScreen = () => {
         content.textContent = "";
     };
-    //loadHome();
-    loadMenu();
+    loadHome();
     document.getElementById("home").onclick = () => {
         updateScreen();
         loadHome();

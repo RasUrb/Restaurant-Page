@@ -1,4 +1,4 @@
-
+import {createDiv, createHeading, createParagraph} from './dom-utils.js';
 const loadMenu = () => {
     const content = document.getElementById('content');
     const beverages = [
@@ -28,7 +28,7 @@ const loadMenu = () => {
             description: "Homemade bread with raspberry jam",
             price: 2,
         },];
-    const main_dishes = [{
+    const mainDishes = [{
         name: "pepperoni pizza",
         description: "Best pizza made in grill. With lots pepperoni and cheese",
         price: 12
@@ -61,20 +61,6 @@ const loadMenu = () => {
     }
     ];
 
-    const createDiv = (class_name) => {
-        const new_div = document.createElement('div');
-        if (class_name) {
-            new_div.classList.add(class_name);
-        };
-        return new_div;
-    };
-    const createHeading = (heading) => {
-        const heading_div = createDiv("heading");
-        const heading_h1 = document.createElement("h1");
-        heading_h1.textContent = heading;
-        heading_div.appendChild(heading_h1);
-        return heading_div;
-    };
     const create_h2 = (title) => {
         const header_div = createDiv();
         const header_title = document.createElement("h2");
@@ -89,12 +75,6 @@ const loadMenu = () => {
         header_div.appendChild(header_title);
         return header_div;
     };
-    const createParagraph = (text, addClass) => {
-        const p = document.createElement('p');
-        p.classList.add(addClass)
-        p.textContent = text;
-        return p;
-    };
 
     const item_format = (item) => {
         const new_div = createDiv();
@@ -108,7 +88,7 @@ const loadMenu = () => {
         const menuData = {
         "Beverages": beverages,
         "Sides": sides,
-        "Main Dishes": main_dishes,
+        "Main Dishes": mainDishes,
         "Desserts": desserts,
         }  
         Object.entries(menuData).forEach(([categoryName, items])=>{
