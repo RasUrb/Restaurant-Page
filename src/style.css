@@ -1,9 +1,10 @@
 :root{
     --one-color:#d8e2dc;
-    --tow-color: #ffe5d9;
+    --two-color: #ffe5d9;
     --three-color:#ffcad4;
-    --fhore-color: #f4acb7;
+    --four-color: #f4acb7;
     --five-color: #e29578;
+    --resizing: 2vw;
 }
 *{
     margin: 0;
@@ -26,11 +27,11 @@ h1, h2, h3{
 text-transform: capitalize;
 }
 h1{
-    font-size: 2.5rem;
+    font-size: clam(1.5rem, 2vw,2.5rem);
     text-align: center;
 }
 h2{
-    font-size: 1.8rem;
+    font-size: clam(0.95rem, 2vw,1.8rem);
 }
 header, footer{
     flex-shrink: 0;
@@ -44,6 +45,7 @@ footer{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 10px;
 
 }
 .heading{
@@ -52,18 +54,22 @@ footer{
 .info-hours ul{
     display: grid;
     text-transform: capitalize;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
 }
 .info-hours ul li{
-    align-content: center;
     font-size: 0.95rem;
-    padding: 3px;
+    padding: 8px 10px;
     font-weight: bold;
     border: 1px solid ;
     word-spacing: 3px;
     border-radius: 10px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
 }
 header nav{
     display: grid;
@@ -72,7 +78,7 @@ header nav{
 
 }
 nav button{
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 5vw, 3rem);
     font-weight: bold;
     padding: 20px;
     padding-bottom: 10px;
@@ -84,7 +90,7 @@ nav button{
 nav button:hover{
     border-bottom: 5px solid #ee7184;
     padding-bottom: 5px;
-    background-color: var(--fhore-color);
+    background-color: var(--four-color);
 }
 .menu-container{
     display: flex;
@@ -105,8 +111,10 @@ nav button:hover{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    padding: 20px;
 }
 .menu-item{
+    padding: 20px;
     min-width: 200px;
     max-width: 300px;
 }
@@ -125,49 +133,3 @@ nav button:hover{
     display: grid;
 
  }
-/* header{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.info-hours{
-    display: flex;
-}
-button{
-background-color: var(--card-color);
-border-radius: 10px;
-font-size: 2rem;
-font-weight: bold;
-
-}
-
-footer h3{
-    margin: 0;
-    padding: 0;
-}
-footer{
-    align-self: stretch;
-}
-[class^='info']{
-    border: 1px solid black;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 8px;
-    background-color: var(--card-color);
-}
-.contact-card, .menu-inner, h2,h1 {
-    border: 1px solid black;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 8px;
-    background-color: var(--card-color);
-}
-
-.contact p:first-child {
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-/*home*/
-
-
