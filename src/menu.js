@@ -1,51 +1,51 @@
-import {createDiv, createHeading, createParagraph} from './dom-utils.js';
+import {createDiv, createHeading, createParagraph, create_h3} from './dom-utils.js';
 const loadMenu = () => {
     const content = document.getElementById('content');
     const beverages = [
         {
             name: "strawberry lemonade",
-            description: "A refreshing drink, with mint and strawberries. Red and sweetly fragrant.",
+            description: "A refreshing drink, with mint and strawberries. Vibrant red and sweetly aromatic.",
             price: 1,
         },
         {
             name: "mint tea",
-            description: "Fresh and cooling tea. nice way to start day off right!",
+            description: "Fresh and cooling tea- the perfect way to start the day.",
             price: 2,
         }];
     const sides = [
         {
             name: "Fresh Fruit",
-            description: "A fresh fruit, with cute forms. Just pick from market.",
+            description: "A fresh fruit, beautifully shaped. Just picked from the market.",
             price: 4
         },
         {
             name: "Cheese platter",
-            description: "4 cheese plater with crackers, fruits and fruit jam. Fruit jam made from pick fruit from the market.",
+            description: "A four-cheese platter with crackers, fresh fruits, and house-made fruit jam-crafted from market-picked fruit.",
             price: 3,
         },
         {
             name: "Toast and Jam",
-            description: "Homemade bread with raspberry jam",
+            description: "Homemade bread served with raspberry jam",
             price: 2,
         },];
     const mainDishes = [{
         name: "pepperoni pizza",
-        description: "Best pizza made in grill. With lots pepperoni and cheese",
+        description: "Our best pizza, grilled to perfection, topped with plenty pepperoni and melted cheese",
         price: 12
     },
     {
         name: "pancake",
-        description: "Big and fluffy pancakes, with fruit jam and maple syrup",
+        description: "Big, fluffy pancakes served with fruit jam and maple syrup",
         price: 6
     },
     {
         name: "Fox tail",
-        description: "Chicken breast pieces with sweet and sour sauce and rice",
+        description: "Tender chicken breast pieces in a sweet and sour sauce with steamed rice",
         price: 8
     },
     {
         name: "Chika chik",
-        description: "chicken breast with tomatoes and cheese with fresh vegetables",
+        description: "Chicken breast baked with tomatoes and cheese with fresh vegetables",
         price: 9
     }
     ];
@@ -62,22 +62,15 @@ const loadMenu = () => {
     ];
 
     const create_h2 = (title) => {
-        const header_div = createDiv();
+        //const header_div = createDiv();
         const header_title = document.createElement("h2");
         header_title.textContent = title;
-        header_div.appendChild(header_title);
-        return header_div;
-    };
-    const create_h3 = (title) => {
-        const header_div = createDiv();
-        const header_title = document.createElement("h3");
-        header_title.textContent = title;
-        header_div.appendChild(header_title);
-        return header_div;
+        //header_div.appendChild(header_title);
+        return header_title;
     };
 
     const item_format = (item) => {
-        const new_div = createDiv();
+        const new_div = createDiv("menu-item");
         const name = create_h3(item.name)
         const description = createParagraph(item.description);
         const price = createParagraph(`${item.price} €`);
@@ -91,20 +84,29 @@ const loadMenu = () => {
         "Main Dishes": mainDishes,
         "Desserts": desserts,
         }  
+
         Object.entries(menuData).forEach(([categoryName, items])=>{
+            const div = createDiv(`menu-container`)
+            const ul = document.createElement("ul");
+            //ul.classList.add("")
             const subHeading = create_h2(categoryName);
-            content.appendChild(subHeading);
+            div.appendChild(subHeading);
         items.forEach((item)=>{
+            const li = document.createElement("li");
             const new_item = item_format(item);
-            content.appendChild(new_item);
+            li.appendChild(new_item);
+            ul.appendChild(li);
         })
+            div.appendChild(ul);
+            content.appendChild(div);
         })
     }
-    const showMenu = () => {
+    const showMenu =  () => {
         const headline = createHeading("Menu");
         content.appendChild(headline);
         createMenu()
     };
-    showMenu();
+
+    return {show: showMenu}
 };
 export default loadMenu;

@@ -1,4 +1,4 @@
-import {createDiv, createHeading, createParagraph} from './dom-utils.js';
+import { createDiv, createHeading, create_h3, createParagraph } from './dom-utils.js';
 
 const loadContact = () => {
     const content = document.getElementById('content');
@@ -23,22 +23,33 @@ const loadContact = () => {
     },];
 
     const createContact = (person) => {
-        const div_contacts = document.createElement("div");
-        div_contacts.classList.add("contact");
-        Object.entries(person).forEach(([name, value]) =>{
-           div_contacts.appendChild(createParagraph(value));
+        const div_contacts = createDiv("contact-card");
+
+        Object.entries(person).forEach(([name, value]) => {
+            console.log(name)
+            if (name === "name") {
+                div_contacts.appendChild(create_h3(value))
+            }
+            else {
+                div_contacts.appendChild(createParagraph(value));
+            }
         });
         return div_contacts;
     };
     const showContact = () => {
         const headline = createHeading("Contact Us");
+        const contactList = document.createElement("ul");
+        contactList.classList.add("contact-container")
         content.appendChild(headline);
         contacts.forEach(person => {
+            const contactObject = document.createElement("li")
             const new_contact = createContact(person);
-            content.appendChild(new_contact);
+            contactObject.appendChild(new_contact);
+            contactList.appendChild(contactObject);
         });
+        content.appendChild(contactList);
     };
 
-    showContact();
+    return { show: showContact }
 };
 export default loadContact;

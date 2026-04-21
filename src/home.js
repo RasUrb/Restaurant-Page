@@ -1,10 +1,10 @@
-import {createDiv, createHeading, createParagraph} from './dom-utils.js';
-const loadHome = () => {
+import {createDiv, createHeading, createParagraph, create_h3} from './dom-utils.js';
+const loadHome = function () {
     const content = document.getElementById('content');
-    const title= "Bite animal food restaurant.";
+    const title= "Bite animal food restaurant";
     const home_content = {
         
-        review: "Best pizza In The City! The pizza is so  delicious that the fox tried to steal it, but nothing stopped the bear. Best day ever.",
+        review: "Best pizza In The City! The pizza is so  delicious that the fox tried to steal it, but bear stopped it from stealing. Best day ever.",
         hours: {
             monday: "6-19",
             tuesday: "6-19",
@@ -17,23 +17,13 @@ const loadHome = () => {
         location: "87 pica pizza row, Heat Oven, Dough",
     };
 
-    const createParagraph = (text, addClass) => {
-        const p = document.createElement('p');
-        p.classList.add(addClass)
-        p.textContent = text;
-        return p;
-    };
+    const info_format = (name, text) => {
+        const new_div = createDiv("info-" + name);
+        const new_header3 = create_h3(name, name);
 
+        if (name != "hours") {
 
-    const info_format = (class_name, text) => {
-        const new_div = createDiv("info-" + class_name);
-        const new_header3 = document.createElement("h3");
-        new_header3.classList.add(class_name);
-        new_header3.textContent = class_name;
-
-        if (class_name != "hours") {
-
-            const new_p = createParagraph(text, class_name);
+            const new_p = createParagraph(text, name);
             new_div.append(new_header3, new_p);
             return new_div;
         }
@@ -44,11 +34,16 @@ const loadHome = () => {
         }
     };
     const hours_format = (div_container) => {
+        const ul = document.createElement("ul");
+        
         Object.entries(home_content.hours).forEach(([day, time])=>{
+            
             const text = `${day}: ${time}`;
-            const p = createParagraph(text, "hour-row");
-            div_container.appendChild(p);
-        })
+            const li = document.createElement("li");
+            li.textContent = text;
+            ul.appendChild(li);
+        });
+        div_container.appendChild(ul);
         return div_container;
     }
     const createHome = () =>{
@@ -64,7 +59,8 @@ const loadHome = () => {
         createHome();  
     };
 
-    showHome();
+
+    return {show: showHome}
 };
 
 export default loadHome;

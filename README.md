@@ -15,3 +15,7 @@ This project part of [The Odin Project's](https://www.theodinproject.com) "Inter
 - Dynamic tab switching between Home and Contact pages.
 - Entirely rendered via JavaScript DOM manipulation.
 - Responsive design for different screen sizes.
+
+## Credits
+This project uses:
+- Icons form [Feather](https://feathericons.com/)
