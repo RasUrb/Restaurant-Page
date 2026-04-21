@@ -4,6 +4,7 @@ This project part of [The Odin Project's](https://www.theodinproject.com) "Inter
 
 [Project Requirements](https://www.theodinproject.com/lessons/node-path-javascript-restaurant-page)
 
+## [Live Preview](https://rasurb.github.io/Restaurant-Page/)
 
 ## Technologies Used
  - HTML5
