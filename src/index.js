@@ -1,6 +1,6 @@
 import loadHome from "./home.js"
 import loadMenu from "./menu.js"
-import loadContact from "./img/contact.js"
+import loadContact from "./contact.js"
 import clockIcon from "./img/clock.svg";
 import facebookIcon from "./img/facebook.svg";
 import instagramIcon from "./img/instagram.svg";
